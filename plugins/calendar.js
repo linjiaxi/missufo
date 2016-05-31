@@ -4,17 +4,17 @@
 $.fn.extend({
     createCalendar:function(data){
 
-        //¶¨Òå±äÁ¿
+        //å®šä¹‰å˜é‡
         var $this = $(this),
             nowDate = new Date(),
             ynow = nowDate.getFullYear(),
             mnow = nowDate.getMonth(),
             dnow = nowDate.getDate(),
             data = data || {},
-            calendarE,//ÈÕÀú¶ÔÏó
-            calendarT,//ÈÕÀú¾ßÌåÈÕÆÚ¶ÔÏó
-            calendarH,//ÈÕÀúÍ·²¿
-            calendarSelect,//ÏÂÀ­¿òÔªËØ
+            calendarE,//æ—¥å†å¯¹è±¡
+            calendarT,//æ—¥å†å…·ä½“æ—¥æœŸå¯¹è±¡
+            calendarH,//æ—¥å†å¤´éƒ¨
+            calendarSelect,//ä¸‹æ‹‰æ¡†å…ƒç´ 
             defaults = {
                 headerBackground:"#eeeeee",
                 headerColor:"black",
@@ -30,13 +30,13 @@ $.fn.extend({
 
 
 
-        createHeader(ynow,mnow);//Éú³ÉÈÕÀú£¬²åÈëbody
-        //±äÁ¿³õÊ¼»¯
+        createHeader(ynow,mnow);//ç”Ÿæˆæ—¥å†ï¼Œæ’å…¥body
+        //å˜é‡åˆå§‹åŒ–
         calendarE = $(".calendar");
         calendarT = $(".calendarTable");
         calendarH = $(".calendarHeader");
         calendarSelect = calendarH.find("select");
-        //³õÊ¼»¯ÈÕÀúÑùÊ½
+        //åˆå§‹åŒ–æ—¥å†æ ·å¼
         calendarE.css({
             position:"absolute",
             left:data.positionLeft,
@@ -53,13 +53,13 @@ $.fn.extend({
             color:data.headerColor
         });
 
-        //ÅĞ¶ÏÊäÈëÈÕÀú¿í¶ÈÊÇ°Ù·Ö±È»¹ÊÇÆäËû
+        //åˆ¤æ–­è¾“å…¥æ—¥å†å®½åº¦æ˜¯ç™¾åˆ†æ¯”è¿˜æ˜¯å…¶ä»–
         if(data.width.indexOf("%")>0){
-            //ÄÃµ½Éè±¸µÄ¿í¶È
+            //æ‹¿åˆ°è®¾å¤‡çš„å®½åº¦
             var winWidth = $(window).width(),
-                calendarWidth = winWidth*parseInt(data.width)/100;//calendar¿í¶È
+                calendarWidth = winWidth*parseInt(data.width)/100;//calendarï¿½ï¿½ï¿½
 
-            //ÈÕÀúÑùÊ½
+            //æ—¥å†æ ·å¼
             calendarH.find("select").css({
                 width:calendarWidth/3+"px"
             });
@@ -90,7 +90,7 @@ $.fn.extend({
             });
         }
 
-        //¼àÌıÏÂÀ­¿îÑ¡ÖĞÊÂ¼ş
+        //ç›‘å¬ä¸‹æ‹‰æ¬¾é€‰ä¸­äº‹ä»¶
         calendarSelect.on("change",function(){
             var selectY = $(".selectY").val(),
                 selectM = $(".selectM").val()- 1,
@@ -110,7 +110,7 @@ $.fn.extend({
 
         });
 
-        //Êó±ê»®¹ı£¬td±äÉ«
+        //é¼ æ ‡åˆ’è¿‡ï¼Œtdå˜è‰²
         calendarT.find("td").each(function(index,ele){
 
             $(this).mouseover(function(){
@@ -122,7 +122,7 @@ $.fn.extend({
                     background:"#eeeeee"
                 })
             })
-            //µã»÷ÏàÓ¦µÄÈÕÆÚÊä³öÏàÓ¦µÄÈÕÆÚ
+            //ç‚¹å‡»ç›¸åº”çš„æ—¥æœŸè¾“å‡ºç›¸åº”çš„æ—¥æœŸ
             $(this).click(function(){
                 var selectY = $(".selectY").val(),
                     selectM = $(".selectM").val(),
@@ -137,28 +137,28 @@ $.fn.extend({
 
 
 
-        //ÅĞ¶ÏÊÇ·ñÎªÈòÄê
+        //åˆ¤æ–­æ˜¯å¦ä¸ºé—°å¹´
         function is_leap(year){
             return (year%100 == 0?res = (year%400 == 0?1:0):res = (year%4 == 0?1:0));
         }
         function createHeader(year,month){
             var calDiv = $("<div class='calendar'/>"),
                 calHeader = $("<div class='calendarHeader' align='center'>"),
-                tableDiv,//ÈÕÀúÈÕÆÚÖ÷Òª²¿·Ö
+                tableDiv,//æ—¥å†æ—¥æœŸä¸»è¦éƒ¨åˆ†
                 selectYear = $("<select class='selectY'/>"),
                 selectMonth = $("<select class='selectM'/>"),
                 selectTime = $("<select class='selectT'/>");
             selectYear.append("<option value='2016'>2016</option><option value='2017'>2017</option>" +
                 "<option value='2018'>2018</option><option value='2018'>2019</option><option value='2018'>2020</option>");
-            selectMonth.append("<option value='1'>1ÔÂ</option><option value='2'>2ÔÂ</option>" +
-                "<option value='3'>3ÔÂ</option><option value='4'>4ÔÂ</option><option value='5'>5ÔÂ</option>" +
-                "<option value='6'>6ÔÂ</option><option value='7'>7ÔÂ</option><option value='8'>8ÔÂ</option>" +
-                "<option value='9'>9ÔÂ</option><option value='10'>10ÔÂ</option><option value='11'>11ÔÂ</option>" +
-                "<option value='12'>12ÔÂ</option>");
+            selectMonth.append("<option value='1'>1æœˆ</option><option value='2'>2æœˆ</option>" +
+                "<option value='3'>3æœˆ</option><option value='4'>4æœˆ</option><option value='5'>5æœˆ</option>" +
+                "<option value='6'>6æœˆ</option><option value='7'>7æœˆ</option><option value='8'>8æœˆ</option>" +
+                "<option value='9'>9æœˆ</option><option value='10'>10æœˆ</option><option value='11'>11æœˆ</option>" +
+                "<option value='12'>12æœˆ</option>");
             /*selectTime.append("<option value='09:00'>09:00</option><option value='10:00'>10:00</option>" +
-                "<option value='11:00'>11:00</option><option value='12:00'>12:00</option><option value='13:00'>13:00</option>");
-*/
-            //²åÈëÔªËØ
+             "<option value='11:00'>11:00</option><option value='12:00'>12:00</option><option value='13:00'>13:00</option>");
+             */
+            //æ’å…¥å…ƒç´ 
             selectYear.appendTo(calHeader);selectMonth.appendTo(calHeader);//selectTime.appendTo(calHeader);
             calHeader.appendTo(calDiv);
             calDiv.insertAfter($("body"));
@@ -166,16 +166,16 @@ $.fn.extend({
             tableDiv.appendTo(calDiv);
             $("body").append(calDiv);
         }
-        //×Ô¶¯Éú³ÉÈÕÀú
+        //è‡ªåŠ¨ç”Ÿæˆæ—¥å†
         function createCalendar(year,month){
             var now_days = new Array(31,28+is_leap(year),31,30,31,30,31,30,31,30,31,30);
             var newDate = new Date(year,month,1);
             var firstDay = newDate.getDay();
-            var tr_str = Math.ceil((now_days[month]+firstDay)/7);//ÈÕÀúĞĞÊı*/
+            var tr_str = Math.ceil((now_days[month]+firstDay)/7);//æ—¥å†è¡Œæ•°*/
             var tableDiv = $("<div class='calendarTable'/>");
             var table_append = $("<table cellspacing='0' border='0'/>");
-            table_append.append("<tr align='center'><td>ÖÜÈÕ</td><td>ÖÜÒ»</td><td>ÖÜ¶ş</td><td>ÖÜÈı</td><td>ÖÜËÄ</td><td>ÖÜÎå" +
-                "</td><td>ÖÜÁù</td></tr>");
+            table_append.append("<tr align='center'><td>å‘¨æ—¥</td><td>å‘¨ä¸€</td><td>å‘¨äºŒ</td><td>å‘¨ä¸‰</td><td>å‘¨å››</td><td>å‘¨äº”" +
+                "</td><td>å‘¨å…­</td></tr>");
             for(var i=0;i<tr_str;i++){
                 var tr_append = $("<tr align='center' class='tr_time'/>");
                 for(var j=0;j<7;j++){
