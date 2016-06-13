@@ -1,0 +1,105 @@
+*{
+   margin: 0;
+    padding: 0;
+}
+body{
+    background: #fb7784;
+    color: white;
+    padding-top: 4rem;
+    text-align: left;
+}
+#wrap{
+    width: 1200px;
+    margin:  0 auto;
+    overflow: hidden;
+}
+pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+h1{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.love2{
+    /*评论区图片*/
+    width: 300px;
+}
+#ljc-discuss{
+    text-align: center;
+    margin: 3rem auto;
+}
+#ljc-discuss hr{
+    width: 100%;
+    height: 5px;
+    border: 1px solid white;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.ljc-publish-button{
+    width: 60px;
+    height: 30px;
+    line-height: 20px;
+    background: white;
+    font-size: 10px;
+    color: #fb7784;
+    border-radius: 5px;
+}
+/*留言区样式*/
+.ljc-discussed-mode{
+    margin: 0 auto;
+    border-bottom: 1px solid white;
+    text-align: left;
+    padding-bottom: 1rem;
+}
+.ljc-discussed-answer{
+    display: inline-block;
+    color: #fb7784;
+    cursor: pointer;
+}
+.ljc-discussed-answer img{
+    width: 60px;
+}
+
+.ljc-discussed-answer span{
+    color: white;
+    display: inline-block;
+}
+/*几楼样式*/
+.floors{
+    display: inline-block;
+    width: 80px;
+    font-size: 1.5rem;
+}
+/*留言内容样式*/
+.ljc-discussed-one{
+    display: inline-block;
+    width: auto;
+    line-height: 2rem;
+}
+/*回复内容编辑区*/
+.answerText{
+    display: none;
+}
+.answerBtn{
+    background: white;
+    border-radius: 5px;
+    border: 0px;
+    color: #fb7784;
+    font-size: 1.5rem;
+    width: 4rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+}
+textarea{
+    border-radius: 10px;
+}
+.answerWords{
+    padding-left: 5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
