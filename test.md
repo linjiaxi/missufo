@@ -7,7 +7,7 @@ Syntax highlighting, matching rules and mappings for [the original Markdown](htt
 1. [Installation](#1.1)
 1. [Options](#1.2)
 1. [Mappings](#1.3)
-1. [commands](#Commands)
+1. [Commands](#commands)
 1. [Credits](#credits)
 1. [License](#license)
 
