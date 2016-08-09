@@ -263,7 +263,7 @@ To disable a map use:
 
     map <Plug> <Plug>Markdown_MoveToParentHeader
 
-## Commands
+## COmmands
 
 The following requires `:filetype plugin on`.
 
