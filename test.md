@@ -8,8 +8,8 @@ Syntax highlighting, matching rules and mappings for [the original Markdown](htt
 1. [Options](#1.2)
 1. [Mappings](#1.3)
 1. [Commands](#commands)
-1. [Credits](#Credits)
-1. [License](#License)
+1. [Credits](#hello)
+1. [License](#license)
 
 <h3 id="1.1">Installation</h3>
 
@@ -310,7 +310,7 @@ The main contributors of vim-markdown are:
 
 If you feel that your name should be on this list, please make a pull request listing your contributions.
 
-## License
+#### License
 
 The MIT License (MIT)
 
